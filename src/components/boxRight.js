@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Card, CardImg, CardFooter, CardBody,CardTitle, CardHeader,CardText} from 'reactstrap';
 
-class RightLeft extends Component {
+class BoxRight extends Component {
    
     
     render() {
@@ -42,4 +42,4 @@ class RightLeft extends Component {
     }
 }
 
-export default RightLeft;
+export default BoxRight;

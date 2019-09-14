@@ -3,20 +3,25 @@ import { Navbar, NavbarBrand, Card, CardBody} from 'reactstrap';
 import BoxLeft from './boxLeft';
 import BoxRight from './boxRight';
 import { DA } from './shared/deliveryagents';
+import { options } from './shared/options';
+import DualListBox from 'react-dual-listbox';
+import 'react-dual-listbox/lib/react-dual-listbox.css';
+import 'font-awesome/css/font-awesome.min.css'
+
+
 
 class Main extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-        delAgents: DA,
         LeftdelAgents: DA,
         RightdelAgents: [],
+        selected: ['']
         
     };
   }
 
-  
 
   render() {
     return (
@@ -26,12 +31,12 @@ class Main extends Component {
             <NavbarBrand href="/">Delivery Agent Assignment</NavbarBrand>
           </div>
         </Navbar>
-        <div class="container">
+        <div className="container">
         <br></br>
         <br></br>
         <div className="row">
         
-        <div className="col-6 col-md-5 mt-1">
+        <div className="col-12 col-md-5 mt-1">
         <BoxLeft LeftdelAgents={this.state.LeftdelAgents}/>
         </div>
         <div className="col-6 col-md-2 mt-1 align-self-center">
@@ -49,13 +54,30 @@ class Main extends Component {
         </Card>
         
         </div>
-        <div className="col-6 col-md-5 mt-1">
+        <div className="col-12 col-md-5 mt-1">
         <BoxRight RightdelAgents={this.state.LeftdelAgents}/>
         </div>
-            </div>
-           
-            </div>
+
+        <div className="col-12 col-md-12 mt-4">
+        <Card>
+        <CardBody>
+        <DualListBox
+        options={options}
+        selected={this.state.selected}
+        onChange={(selected) => {
+            this.setState({selected})
+        }}
+    />
+        </CardBody>
+        </Card>
         </div>
+            </div>
+          
+            </div>
+            
+            </div>
+            
+            
     );
   }
 }

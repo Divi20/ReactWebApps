@@ -22,3 +22,5 @@ export const DA =
         image: 'assets/images/elaicheesecake.png',
         }
     ];
+
+    export default DA;
